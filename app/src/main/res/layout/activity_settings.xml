@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ios_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="14dp"
+        android:text="设置"
+        android:textColor="@color/ios_label"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:letterSpacing="-0.02" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- 采集设置 -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="采集" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_settings_group"
+                android:orientation="vertical"
+                android:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/rowInterval"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        style="@style/SettingLabel"
+                        android:text="取帧间隔" />
+
+                    <TextView
+                        android:id="@+id/tvIntervalValue"
+                        style="@style/SettingValue"
+                        android:text="3秒" />
+
+                    <ImageView
+                        style="@style/SettingChevron"
+                        android:contentDescription="选择" />
+                </LinearLayout>
+
+                <View style="@style/RowSeparator" />
+
+                <LinearLayout
+                    android:id="@+id/rowFrames"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        style="@style/SettingLabel"
+                        android:text="每几帧总结一次" />
+
+                    <TextView
+                        android:id="@+id/tvFramesValue"
+                        style="@style/SettingValue"
+                        android:text="12 帧" />
+
+                    <ImageView
+                        style="@style/SettingChevron"
+                        android:contentDescription="选择" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/SectionFooter"
+                android:text="下次点「开始行程记录」后生效" />
+
+            <!-- 收音与图片模式 -->
+            <TextView
+                style="@style/SectionHeader"
+                android:layout_marginTop="24dp"
+                android:text="收音与图片" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_settings_group"
+                android:elevation="1dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/rowAudio"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/SettingLabel"
+                            android:text="行程录音" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="录语音并经 StepAudio 3 ASR 转文字，随总结一起分析"
+                            android:textColor="@color/ios_label_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchAudio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <View style="@style/RowSeparator" />
+
+                <LinearLayout
+                    android:id="@+id/rowImageMode"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        style="@style/SettingLabel"
+                        android:text="发给大模型的图片" />
+
+                    <TextView
+                        android:id="@+id/tvImageMode"
+                        style="@style/SettingValue"
+                        android:text="拼图" />
+
+                    <ImageView
+                        style="@style/SettingChevron"
+                        android:contentDescription="选择" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    android:text="拼图=多帧合成一张（省 token）；全部原图=逐张发送（细节更全，最多12帧）；小视频=帧合成MP4（最省，时序更好，实测约省8倍token）"
+                    android:textColor="@color/ios_label_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 提示词设置 -->
+            <TextView
+                style="@style/SectionHeader"
+                android:layout_marginTop="24dp"
+                android:text="提示词" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_group"
+                android:elevation="1dp"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:text="实时问候（预览悬浮句）" />
+
+                <EditText
+                    android:id="@+id/etGreetPrompt"
+                    style="@style/SettingEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="top"
+                    android:hint="留空用默认 prompt。点按可完整编辑，盒内上下拖动可看全文"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/rowGreetPreset"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/SettingLabel"
+                        android:text="预设方案" />
+
+                    <TextView
+                        android:id="@+id/tvGreetPreset"
+                        style="@style/SettingValue"
+                        android:text="朋友碎碎念" />
+
+                    <ImageView
+                        style="@style/SettingChevron"
+                        android:contentDescription="选择" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="18dp"
+                    android:text="行程小计（总结 prompt）" />
+
+                <EditText
+                    android:id="@+id/etSummaryPrompt"
+                    style="@style/SettingEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="top"
+                    android:hint="留空用默认 prompt。点按可完整编辑，盒内上下拖动可看全文"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/rowSummaryPreset"
+                    style="@style/SettingRow"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp">
+
+                    <TextView
+                        style="@style/SettingLabel"
+                        android:text="预设方案" />
+
+                    <TextView
+                        android:id="@+id/tvSummaryPreset"
+                        style="@style/SettingValue"
+                        android:text="全程回顾" />
+
+                    <ImageView
+                        style="@style/SettingChevron"
+                        android:contentDescription="选择" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 模型一：行程总结 / 问答 / 导出报告 -->
+            <TextView
+                style="@style/SectionHeader"
+                android:layout_marginTop="24dp"
+                android:text="模型一 · 行程总结与问答" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_settings_group"
+                android:orientation="vertical"
+                android:elevation="1dp"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:text="baseUrl" />
+
+                <EditText
+                    android:id="@+id/etBaseUrl"
+                    style="@style/SettingEditText"
+                    android:hint="https://api.stepfun.com/step_plan/v1"
+                    android:inputType="textUri" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="apiKey" />
+
+                <EditText
+                    android:id="@+id/etApiKey"
+                    style="@style/SettingEditText"
+                    android:hint="sk-...（只存本机）"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="model" />
+
+                <EditText
+                    android:id="@+id/etModel"
+                    style="@style/SettingEditText"
+                    android:hint="step-3.7-flash"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <!-- 模型二：实时问候（同 key 也可用于语音识别） -->
+            <TextView
+                style="@style/SectionHeader"
+                android:layout_marginTop="24dp"
+                android:text="模型二 · 实时问候与语音识别" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_settings_group"
+                android:orientation="vertical"
+                android:elevation="1dp"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:text="baseUrl" />
+
+                <EditText
+                    android:id="@+id/etGreetBaseUrl"
+                    style="@style/SettingEditText"
+                    android:hint="https://api.stepfun.com/v1"
+                    android:inputType="textUri" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="apiKey" />
+
+                <EditText
+                    android:id="@+id/etGreetApiKey"
+                    style="@style/SettingEditText"
+                    android:hint="sk-...（只存本机）"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="问候模型 model" />
+
+                <EditText
+                    android:id="@+id/etGreetModel"
+                    style="@style/SettingEditText"
+                    android:hint="step-1o-turbo-vision"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <!-- 模型三：卡通集合图生图 -->
+            <TextView
+                style="@style/SectionHeader"
+                android:layout_marginTop="24dp"
+                android:text="模型三 · 卡通集合图生图" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_settings_group"
+                android:orientation="vertical"
+                android:elevation="1dp"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:text="baseUrl" />
+
+                <EditText
+                    android:id="@+id/etImgBaseUrl"
+                    style="@style/SettingEditText"
+                    android:hint="https://mp.z01.normandyfunc.com/v1"
+                    android:inputType="textUri" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="apiKey" />
+
+                <EditText
+                    android:id="@+id/etImgApiKey"
+                    style="@style/SettingEditText"
+                    android:hint="ak-...（只存本机）"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:layout_marginTop="12dp"
+                    android:text="model" />
+
+                <EditText
+                    android:id="@+id/etImgModel"
+                    style="@style/SettingEditText"
+                    android:hint="gpt-image-2"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnSaveSettings"
+                style="@style/PrimaryButton"
+                android:layout_marginTop="22dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />
+
+            <TextView
+                style="@style/SectionFooter"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="三套配置都只存本机 · OpenAI 兼容协议 · 留空的模型名/地址用默认值" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

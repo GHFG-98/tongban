@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ios_background">
+
+    <!-- 标题栏 -->
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="52dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:text="行程小计"
+                android:textColor="@color/ios_label"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/ios_label_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnOpenSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="⚙"
+            android:textColor="@color/ios_label"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- 主体滚动区 -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Ask 常驻区 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="问问这段行程"
+                    android:textColor="@color/ios_label_secondary"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/etQuestion"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_edittext"
+                        android:hint="比如：路上出现过什么"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:textColor="@color/ios_label"
+                        android:textColorHint="@color/ios_label_secondary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/btnAsk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_blue_button"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="问一下"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- 问答历史 -->
+                <LinearLayout
+                    android:id="@+id/askHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- 行程语音（收音识别结果） -->
+            <LinearLayout
+                android:id="@+id/asrCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card"
+                android:elevation="1dp"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/asrTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:text="行程语音"
+                    android:textColor="@color/ios_label"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/asrStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ios_label_secondary"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/asrList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- 小记卡片流 -->
+            <LinearLayout
+                android:id="@+id/listContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 底部操作栏（毛玻璃） -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_bar_light"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- 常态三主动作 -->
+        <TextView
+            android:id="@+id/btnGenerate"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="生成小计"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btnSmartPick"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="导出素材"
+            android:textColor="@color/ios_label"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/btnExportAll"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="导出所有小计"
+            android:textColor="@color/ios_label"
+            android:textSize="14sp" />
+
+        <!-- 选择模式操作（默认隐藏） -->
+        <TextView
+            android:id="@+id/btnSelectCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/ios_label"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/btnDeleteSelected"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="删除(0)"
+            android:textColor="#B3261E"
+            android:textSize="13sp"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/btnExportSelected"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_gray_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="导出(N)"
+            android:textColor="@color/ios_label"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/btnLongAnalysis"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="分析(0)"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

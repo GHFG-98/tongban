@@ -1,0 +1,20 @@
+# Built artifacts
+app/build/
+build/
+.gradle/
+.kotlin/
+
+# Local SDK path (machine-specific, never commit)
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Keystores / signing
+*.jks
+*.keystore
+
+# Logs & dumps
+*.log

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- 图标：蓝色圆底 + 文档符号 -->
+    <FrameLayout
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_icon_circle_blue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="📄"
+            android:textSize="26sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/exportTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="-0.01"
+        android:text="正在导出报告"
+        android:textColor="@color/ios_label"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/exportMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingMultiplier="1.4"
+        android:text="模型正在整理所选片段…"
+        android:textColor="@color/ios_label_secondary"
+        android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/exportBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="18dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#007AFF" />
+</LinearLayout>

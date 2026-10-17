@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SectionHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:textColor">@color/ios_label_secondary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SectionFooter">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:textColor">@color/ios_label_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SettingRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+    </style>
+
+    <style name="SettingLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/ios_label</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SettingValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:textColor">@color/ios_label_secondary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SettingChevron">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:src">@drawable/ic_chevron</item>
+    </style>
+
+    <style name="RowSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/ios_separator</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="FieldLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textColor">@color/ios_label_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SettingEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/ios_label</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="PrimaryButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:background">@drawable/bg_blue_button</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
+</resources>

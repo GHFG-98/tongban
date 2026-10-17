@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="14dp">
+
+    <!-- 左侧纤细时间轴 -->
+    <FrameLayout
+        android:layout_width="22dp"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="#E5E5EA" />
+
+        <View
+            android:id="@+id/dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_dot" />
+    </FrameLayout>
+
+    <!-- 右侧卡片：上图下文 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_card"
+        android:elevation="1dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+            <ImageView
+                android:id="@+id/thumb"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:background="@drawable/bg_thumb"
+                android:contentDescription="行程拼图"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_glass_pill"
+                android:letterSpacing="0.02"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+            <!-- 右上角：勾选圈（选择模式）或 ⋮ 菜单按钮 -->
+            <ImageView
+                android:id="@+id/check"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="10dp"
+                android:contentDescription="选中"
+                android:src="@drawable/ic_check_circle"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/btnMore"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_glass_pill"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="⋮"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.45"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="@color/ios_label"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
